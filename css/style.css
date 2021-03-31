@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/*//////////////////////////////*/
+/*  REINITIALISATION DU STYLE   */
+/*//////////////////////////////*/
+:root {
+  background-color: #f2f2f2;
+  font-family: sans-serif;
+  --primary: hsl(0, 0%, 100%);
+  --secondary: hsl(180, 73%, 47%); }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /*héritage par rapport à body*/ }
+
+html {
+  font-size: 62.5%;
+  /*1 rem égal à 10px maintenant 62.5% = 10px/16px*/
+  overflow-x: hidden; }
+
+body {
+  box-sizing: border-box; }
+
+/*//////////////////////////////*/
+/*         STYLE GLOBAL         */
+/*//////////////////////////////*/
+.component {
+  background-color: var(--primary);
+  width: 70vw;
+  margin: 0 auto;
+  margin-top: 5rem; }
+  .component__tab-container {
+    border-bottom: 2px solid var(--secondary); }
+
+.component__tab {
+  border: none;
+  background-color: var(--primary);
+  font-size: 1.6rem;
+  padding: 1.5rem;
+  cursor: pointer; }
+  .component__tab--active {
+    background-color: var(--secondary); }
+
+.component__content {
+  font-size: 1.6rem;
+  display: none;
+  padding: 5rem; }
+  .component__content--title {
+    padding-bottom: 2rem; }
+  .component__content--active {
+    display: block; }
