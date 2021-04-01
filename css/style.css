@@ -76,8 +76,12 @@ body {
   .tabComp__content--active {
     display: block; }
 
+/*//////////////////////////////*/
+/*         THEME BUTTON         */
+/*//////////////////////////////*/
 .btn-theme {
   display: block;
   margin: 5rem auto;
   border: none;
-  background-color: transparent; }
+  background-color: transparent;
+  cursor: pointer; }
