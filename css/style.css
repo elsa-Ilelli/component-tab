@@ -1,13 +1,25 @@
 @charset "UTF-8";
 /*//////////////////////////////*/
-/*  REINITIALISATION DU STYLE   */
+/*        COLOR MANAGER         */
 /*//////////////////////////////*/
 :root {
-  background-color: #f2f2f2;
   font-family: sans-serif;
-  --primary: hsl(0, 0%, 100%);
-  --secondary: hsl(180, 73%, 47%); }
+  --backgroundColor: #f2f2f2;
+  --compBgColor: #faf8f5;
+  --textColor: #121212;
+  --tabTxtColor: #121212;
+  --primary: #20cfcf;
+  --primary-light: #a7f1f1; }
 
+html[dark] {
+  --backgroundColor: #121212;
+  --compBgColor: rgba(250, 248, 245, 0.07);
+  --textColor: #faf8f5;
+  --tabTxtColor: #121212; }
+
+/*//////////////////////////////*/
+/*         STYLE RESET          */
+/*//////////////////////////////*/
 *,
 *::after,
 *::before {
@@ -22,33 +34,50 @@ html {
   overflow-x: hidden; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: var(--backgroundColor);
+  color: var(--textColor); }
 
 /*//////////////////////////////*/
 /*         STYLE GLOBAL         */
 /*//////////////////////////////*/
-.component {
-  background-color: var(--primary);
+.tabComp {
+  background-color: var(--compBgColor);
   width: 70vw;
   margin: 0 auto;
   margin-top: 5rem; }
-  .component__tab-container {
-    border-bottom: 2px solid var(--secondary); }
+  .tabComp__tab-container {
+    border-bottom: 2px solid var(--primary); }
 
-.component__tab {
+.tabComp__tab {
   border: none;
-  background-color: var(--primary);
+  background-color: var(--compBgColor);
   font-size: 1.6rem;
   padding: 1.5rem;
-  cursor: pointer; }
-  .component__tab--active {
-    background-color: var(--secondary); }
+  cursor: pointer;
+  color: inherit; }
+  .tabComp__tab--active {
+    background-color: var(--primary);
+    color: var(--tabTxtColor); }
+  .tabComp__tab:hover {
+    background-color: var(--primary-light);
+    color: var(--tabTxtColor); }
+  .tabComp__tab:active {
+    background-color: var(--primary);
+    color: var(--tabTxtColor); }
 
-.component__content {
+.tabComp__content {
   font-size: 1.6rem;
+  line-height: 2.24rem;
   display: none;
   padding: 5rem; }
-  .component__content--title {
+  .tabComp__content--title {
     padding-bottom: 2rem; }
-  .component__content--active {
+  .tabComp__content--active {
     display: block; }
+
+.btn-theme {
+  display: block;
+  margin: 5rem auto;
+  border: none;
+  background-color: transparent; }

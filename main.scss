@@ -1,13 +1,33 @@
 /*//////////////////////////////*/
-/*  REINITIALISATION DU STYLE   */
+/*        COLOR MANAGER         */
 /*//////////////////////////////*/
+
+$white: hsl(45, 29%, 97%);
+$black: hsl(0, 0%, 7%);
+$light-gray: hsl(0, 0%, 95%);
+$primary: hsl(180, 73%, 47%);
+$primary-light:hsl(180, 73%, 80%);
+
 :root {
-  background-color: hsl(0, 0%, 95%);
   font-family: sans-serif;
-  --primary: hsl(0, 0%, 100%);
-  --secondary: hsl(180, 73%, 47%);
+  --backgroundColor: #{$light-gray};
+  --compBgColor: #{$white};
+  --textColor: #{$black};
+  --tabTxtColor: #{$black};
+  --primary: #{$primary};
+  --primary-light: #{$primary-light};
 }
 
+html[dark]{
+  --backgroundColor: #{$black};
+  --compBgColor: #{rgba($white, 0.07)};
+  --textColor: #{$white};
+  --tabTxtColor: #{$black};
+}
+
+/*//////////////////////////////*/
+/*         STYLE RESET          */
+/*//////////////////////////////*/
 *,
 *::after,
 *::before {
@@ -24,36 +44,51 @@ html {
 
 body {
   box-sizing: border-box;
+  background-color: var(--backgroundColor);
+  color : var(--textColor);
 }
 
 /*//////////////////////////////*/
 /*         STYLE GLOBAL         */
 /*//////////////////////////////*/
-.component {
-  background-color: var(--primary);
+.tabComp { 
+  background-color: var(--compBgColor);
   width: 70vw;
   margin: 0 auto;
   margin-top: 5rem;
 
   &__tab-container {
-    border-bottom: 2px solid var(--secondary);
+    border-bottom: 2px solid var(--primary);
   }
 }
 
-.component__tab {
+.tabComp__tab {
   border: none;
-  background-color: var(--primary);
+  background-color: var(--compBgColor);
   font-size: 1.6rem;
   padding: 1.5rem;
   cursor: pointer;
+  color: inherit;
 
   &--active {
-    background-color: var(--secondary);
+    background-color: var(--primary);
+    color: var(--tabTxtColor);
+  }
+
+  &:hover{
+    background-color: var(--primary-light);
+    color: var(--tabTxtColor);
+  }
+
+  &:active {
+    background-color: var(--primary);
+    color: var(--tabTxtColor);
   }
 }
 
-.component__content {
+.tabComp__content {
   font-size: 1.6rem;
+  line-height: 2.24rem;
   display: none;
   padding: 5rem;
 
@@ -64,4 +99,11 @@ body {
   &--active {
     display: block;
   }
+}
+
+.btn-theme{
+  display: block;
+  margin: 5rem auto;
+  border: none;
+  background-color: transparent;
 }
